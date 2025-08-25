@@ -1,0 +1,20 @@
+{
+  "canisters": {
+    "auth": {
+      "type": "motoko",
+      "source": ["backend/auth"]
+    },
+    "feedback": {
+      "type": "motoko",
+      "source": ["backend/feedback"]
+    },
+    "stats": {
+      "type": "motoko",
+      "source": ["backend/stats"]
+    },
+    "admin": {
+      "type": "motoko",
+      "source": ["backend/admin"]
+    }
+  }
+}
