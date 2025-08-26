@@ -39,7 +39,7 @@ function App() {
       
       <div className="feedback-container">
         <h2>Feedbacks</h2>
-        <div className="messages">
+        <div className="messages chat-box">
           {messages.map((msg, index) => (
             <div key={index} className="message">
               <strong>{msg.sender}:</strong> {msg.message}
