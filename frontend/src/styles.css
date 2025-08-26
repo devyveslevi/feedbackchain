@@ -97,7 +97,7 @@ body {
 .feedback-item {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   padding: 0.75rem 1rem;
   margin-bottom: 0.75rem;
   border-radius: 12px;
@@ -130,10 +130,23 @@ body {
   }
 }
 
-.feedback-text {
+.feedback-content {
   flex: 1;
   margin-right: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.feedback-sender {
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  opacity: 0.8;
+}
+
+.feedback-text {
   font-weight: 500;
+  line-height: 1.4;
 }
 
 .feedback-kind {
@@ -241,10 +254,18 @@ body {
 }
 
 .stat-number {
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: bold;
   color: white;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  margin-bottom: 0.5rem;
+}
+
+.stat-percentage {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .stat-box.elogio {
@@ -272,6 +293,13 @@ body {
   color: #2c3e50;
   font-size: 1.3rem;
   font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.stats-summary {
+  color: #6c757d;
+  font-size: 0.9rem;
+  font-style: italic;
 }
 
 /* Responsive Design */
@@ -320,7 +348,11 @@ body {
   }
   
   .stat-number {
-    font-size: 2rem;
+    font-size: 2.5rem;
+  }
+  
+  .stat-percentage {
+    font-size: 1rem;
   }
   
   .feedback-item {
@@ -351,6 +383,10 @@ body {
   }
   
   .stat-number {
-    font-size: 1.8rem;
+    font-size: 2rem;
+  }
+  
+  .stat-percentage {
+    font-size: 0.9rem;
   }
 }

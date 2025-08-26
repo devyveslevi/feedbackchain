@@ -2,11 +2,16 @@ import React, { useState } from 'react';
 
 const Chat = () => {
   const [feedbacks, setFeedbacks] = useState([
-    { id: 1, text: "Adorei o atendimento!", kind: "ELOGIO", isUser: false },
-    { id: 2, text: "Demorou muito...", kind: "RECLAMACAO", isUser: false },
-    { id: 3, text: "O produto é muito bom!", kind: "ELOGIO", isUser: false },
-    { id: 4, text: "Poderia ter mais opções", kind: "SUGESTAO", isUser: false },
-    { id: 5, text: "Precisa melhorar o suporte", kind: "RECLAMACAO", isUser: false }
+    { id: 1, text: "Excelente atendimento, voltarei sempre!", kind: "ELOGIO", isUser: false, sender: "Alice" },
+    { id: 2, text: "A entrega atrasou em 2 dias.", kind: "RECLAMACAO", isUser: false, sender: "Bob" },
+    { id: 3, text: "Poderiam adicionar opção de pagamento por PIX.", kind: "SUGESTAO", isUser: false, sender: "Carol" },
+    { id: 4, text: "Funcionários muito atenciosos.", kind: "ELOGIO", isUser: false, sender: "Daniel" },
+    { id: 5, text: "O produto chegou com embalagem danificada.", kind: "RECLAMACAO", isUser: false, sender: "Eva" },
+    { id: 6, text: "Seria ótimo ter promoções semanais.", kind: "SUGESTAO", isUser: false, sender: "Fernando" },
+    { id: 7, text: "Qualidade dos produtos superou minhas expectativas!", kind: "ELOGIO", isUser: false, sender: "Gabriela" },
+    { id: 8, text: "O site está muito lento para carregar.", kind: "RECLAMACAO", isUser: false, sender: "Henrique" },
+    { id: 9, text: "Adoraria ver mais opções de cores disponíveis.", kind: "SUGESTAO", isUser: false, sender: "Isabela" },
+    { id: 10, text: "Preços muito competitivos no mercado!", kind: "ELOGIO", isUser: false, sender: "João" }
   ]);
   
   const [newFeedback, setNewFeedback] = useState('');
@@ -18,7 +23,8 @@ const Chat = () => {
         id: Date.now(),
         text: newFeedback.trim(),
         kind: "SUGESTAO",
-        isUser: true
+        isUser: true,
+        sender: "Você"
       };
       setFeedbacks([...feedbacks, feedback]);
       setNewFeedback('');
@@ -48,7 +54,10 @@ const Chat = () => {
             key={feedback.id} 
             className={`feedback-item ${feedback.isUser ? 'user-message' : 'other-message'}`}
           >
-            <span className="feedback-text">{feedback.text}</span>
+            <div className="feedback-content">
+              <div className="feedback-sender">{feedback.sender}</div>
+              <span className="feedback-text">{feedback.text}</span>
+            </div>
             <span 
               className="feedback-kind"
               style={{ backgroundColor: getKindColor(feedback.kind) }}
