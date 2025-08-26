@@ -25,6 +25,13 @@ function App() {
     }
   }
 
+  // Calcular estatísticas
+  const statistics = {
+    ELOGIO: messages.filter(msg => msg.kind === "ELOGIO").length,
+    RECLAMACAO: messages.filter(msg => msg.kind === "RECLAMACAO").length,
+    SUGESTAO: messages.filter(msg => msg.kind === "SUGESTAO").length
+  }
+
   return (
     <div className="App">
       <h1>FeedBackChain</h1>
@@ -53,6 +60,24 @@ function App() {
           <button onClick={handleSendFeedback} className="send-button">
             Enviar Feedback
           </button>
+        </div>
+        
+        <div className="statistics">
+          <h3>Estatísticas</h3>
+          <div className="stats-grid">
+            <div className="stat-item">
+              <span className="stat-label">Elogios:</span>
+              <span className="stat-value">{statistics.ELOGIO}</span>
+            </div>
+            <div className="stat-item">
+              <span className="stat-label">Reclamações:</span>
+              <span className="stat-value">{statistics.RECLAMACAO}</span>
+            </div>
+            <div className="stat-item">
+              <span className="stat-label">Sugestões:</span>
+              <span className="stat-value">{statistics.SUGESTAO}</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
