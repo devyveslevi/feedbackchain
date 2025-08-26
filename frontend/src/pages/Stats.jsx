@@ -28,17 +28,26 @@ const Stats = () => {
       
       <div className="stats-grid">
         <div className="stat-box elogio">
-          <h3>Elogios</h3>
+          <h3>
+            <span role="img" aria-label="elogio">👍</span>
+            Elogios
+          </h3>
           <div className="stat-number">{elogios}</div>
         </div>
         
         <div className="stat-box reclamacao">
-          <h3>Reclamações</h3>
+          <h3>
+            <span role="img" aria-label="reclamacao">⚠️</span>
+            Reclamações
+          </h3>
           <div className="stat-number">{reclamacoes}</div>
         </div>
         
         <div className="stat-box sugestao">
-          <h3>Sugestões</h3>
+          <h3>
+            <span role="img" aria-label="sugestao">💡</span>
+            Sugestões
+          </h3>
           <div className="stat-number">{sugestoes}</div>
         </div>
       </div>

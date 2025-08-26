@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 
 const Chat = () => {
   const [feedbacks, setFeedbacks] = useState([
-    { id: 1, text: "Adorei o atendimento!", kind: "ELOGIO" },
-    { id: 2, text: "Demorou muito...", kind: "RECLAMACAO" },
-    { id: 3, text: "O produto é muito bom!", kind: "ELOGIO" },
-    { id: 4, text: "Poderia ter mais opções", kind: "SUGESTAO" },
-    { id: 5, text: "Precisa melhorar o suporte", kind: "RECLAMACAO" }
+    { id: 1, text: "Adorei o atendimento!", kind: "ELOGIO", isUser: false },
+    { id: 2, text: "Demorou muito...", kind: "RECLAMACAO", isUser: false },
+    { id: 3, text: "O produto é muito bom!", kind: "ELOGIO", isUser: false },
+    { id: 4, text: "Poderia ter mais opções", kind: "SUGESTAO", isUser: false },
+    { id: 5, text: "Precisa melhorar o suporte", kind: "RECLAMACAO", isUser: false }
   ]);
   
   const [newFeedback, setNewFeedback] = useState('');
@@ -17,7 +17,8 @@ const Chat = () => {
       const feedback = {
         id: Date.now(),
         text: newFeedback.trim(),
-        kind: "SUGESTAO"
+        kind: "SUGESTAO",
+        isUser: true
       };
       setFeedbacks([...feedbacks, feedback]);
       setNewFeedback('');
@@ -43,7 +44,10 @@ const Chat = () => {
       
       <div className="chat-box">
         {feedbacks.map((feedback) => (
-          <div key={feedback.id} className="feedback-item">
+          <div 
+            key={feedback.id} 
+            className={`feedback-item ${feedback.isUser ? 'user-message' : 'other-message'}`}
+          >
             <span className="feedback-text">{feedback.text}</span>
             <span 
               className="feedback-kind"
